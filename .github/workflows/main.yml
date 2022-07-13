@@ -32,3 +32,9 @@ jobs:
     - run: npm ci
     - run: npm run build -- --production
     - run: npm run package
+    - run: echo FILENAME_IPK=`ls *.ipk` >> $GITHUB_ENV
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: custom-screensaver-ipk
+        path: ${{github.workspace}}/${{ env.FILENAME_IPK }}
